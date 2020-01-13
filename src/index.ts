@@ -17,6 +17,7 @@ export class Inflectors {
 	public comparative = ():string => adjective.comparative(this.word);
 	public superlative = ():string => adjective.superlative(this.word);
 
+	// from verb/transform.ts
 	public conjugate = (to:string):string => verb.conjugate(this.word,to);
 	public toPresent = ():string => verb.toPresent(this.word);
 	public toPast = ():string => verb.toPast(this.word);

@@ -15,6 +15,16 @@ func lookup(input string) (ret []string) {
 	return
 }
 
+// in go, this guards indexing an empty array
+func lookupAt(input string, i int) (ret string, okay bool) {
+	if slice := lookup(input); i >= 0 && i < len(slice) {
+		if str := slice[i]; len(str) > 0 {
+			ret, okay = str, true
+		}
+	}
+	return
+}
+
 func dirIndex(dir string) int {
 	at := -1
 	for i, el := range []string{"VBP", "VBD", "VBN", "VBZ", "VBG"} {
