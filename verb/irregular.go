@@ -1,5 +1,28 @@
 package verb
 
+// init irregular verbs
+func init() {
+	// map back to the root:
+	// ex. abhorred to abhor
+	for _, entry := range irregular {
+		vbpTable[entry[VBP]] = entry
+		//
+		if k := entry[VBD]; len(k) > 0 {
+			vbdTable[k] = entry
+		}
+		if k := entry[VBN]; len(k) > 0 {
+			vbnTable[k] = entry
+		}
+		if k := entry[VBZ]; len(k) > 0 {
+			vbzTable[k] = entry
+		}
+		if k := entry[VBG]; len(k) > 0 {
+			vbgTable[k] = entry
+		}
+	}
+
+}
+
 var irregular = [][]string{
 	{"abhor", "abhorred", "abhorred", "abhors", "abhorring"},
 	{"abide", "abode", "abode", "abides", "abiding"},

@@ -10,40 +10,40 @@ import (
 func tryPresent(verb string) (ret string) {
 	// Gerunds
 	if strings.HasSuffix(verb, "ing") {
-		if a, ok := VBP[replace(verb, `ing$`, "")]; ok {
+		if a, ok := vbpTable[replace(verb, `ing$`, "")]; ok {
 			ret = a[0]
-		} else if b, ok := VBP[replace(verb, `ing$`, "e")]; ok {
+		} else if b, ok := vbpTable[replace(verb, `ing$`, "e")]; ok {
 			ret = b[0]
-		} else if c, ok := VBP[replace(verb, `.ing$`, "")]; ok {
+		} else if c, ok := vbpTable[replace(verb, `.ing$`, "")]; ok {
 			ret = c[0]
-		} else if d, ok := VBP[replace(verb, `ying$`, "ie")]; ok {
+		} else if d, ok := vbpTable[replace(verb, `ying$`, "ie")]; ok {
 			ret = d[0]
 		}
 	} else if strings.HasSuffix(verb, "s") {
 		// VBZs
-		if a, ok := VBP[replace(verb, `s$`, "")]; ok {
+		if a, ok := vbpTable[replace(verb, `s$`, "")]; ok {
 			ret = a[0]
-		} else if b, ok := VBP[replace(verb, `es$`, "")]; ok {
+		} else if b, ok := vbpTable[replace(verb, `es$`, "")]; ok {
 			ret = b[0]
-		} else if c, ok := VBP[replace(verb, `ies$`, "y")]; ok {
+		} else if c, ok := vbpTable[replace(verb, `ies$`, "y")]; ok {
 			ret = c[0]
 		}
 	} else if strings.HasSuffix(verb, "ed") {
 		// VBNs & VBDs
-		if a, ok := VBP[replace(verb, `ed$`, "")]; ok {
+		if a, ok := vbpTable[replace(verb, `ed$`, "")]; ok {
 			ret = a[0]
-		} else if b, ok := VBP[replace(verb, `d$`, "")]; ok {
+		} else if b, ok := vbpTable[replace(verb, `d$`, "")]; ok {
 			ret = b[0]
-		} else if c, ok := VBP[replace(verb, `ied$`, "y")]; ok {
+		} else if c, ok := vbpTable[replace(verb, `ied$`, "y")]; ok {
 			ret = c[0]
-		} else if d, ok := VBP[replace(verb, `ed$`, "y")]; ok {
+		} else if d, ok := vbpTable[replace(verb, `ed$`, "y")]; ok {
 			ret = d[0]
-		} else if e, ok := VBP[replace(verb, `ed$`, "e")]; ok {
+		} else if e, ok := vbpTable[replace(verb, `ed$`, "e")]; ok {
 			ret = e[0]
-		} else if f, ok := VBP[replace(verb, `.ed$`, "")]; ok {
+		} else if f, ok := vbpTable[replace(verb, `.ed$`, "")]; ok {
 			ret = f[0]
 		}
-	} else if a, ok := VBP[porterstemmer.StemString(verb)]; ok {
+	} else if a, ok := vbpTable[porterstemmer.StemString(verb)]; ok {
 		// finally defaults to porter stemmer
 		ret = a[0]
 	}

@@ -7,8 +7,8 @@ import (
 )
 
 func testConjugations(t *testing.T, entry string, expected []string) {
-	for i, to := range []string{"VBP", "VBD", "VBN", "VBZ", "VBG"} {
-		result := verb.Conjugate(entry, to)
+	for i, to := range []verb.VerbType{verb.VBP, verb.VBD, verb.VBN, verb.VBZ, verb.VBG} {
+		result := to.Conjugate(entry)
 		if x := expected[i]; x == result {
 			t.Log("ok:", entry, to, result)
 		} else {

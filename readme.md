@@ -9,7 +9,6 @@ this is a partial golang port of https://github.com/FinNLP/en-inflectors
 Here's a quick demo: [http://en-inflectors.surge.sh/](http://en-inflectors.surge.sh/)
 
 
-
 ## Usage
 
 *  **Import the library**

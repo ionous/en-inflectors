@@ -1,5 +1,28 @@
 package verb
 
+// init regular verbs
+// each entry is a verb that we conjugate
+func init() {
+	for _, present := range regular {
+		past := VBD.solveRegex(present)
+		pastParticiple := VBN.solveRegex(present)
+		present3rd := VBZ.solveRegex(present)
+		gerund := VBG.solveRegex(present)
+		entry := []string{
+			present,
+			past,
+			pastParticiple,
+			present3rd,
+			gerund,
+		}
+		vbpTable[present] = entry
+		vbdTable[past] = entry
+		vbnTable[pastParticiple] = entry
+		vbzTable[present3rd] = entry
+		vbgTable[gerund] = entry
+	}
+}
+
 var regular = []string{
 	"abandon", "abase", "abash", "abate", "abbreviate",
 	"abdicate", "abduct", "abjure", "abnegate", "abominate", "abound", "abrade",
